@@ -33,17 +33,26 @@
 </template>
 
 <script>
+import { addCategory } from '../../services/books';
+
 export default {
   name: "AddCategory",
   data() {
-      return {
-          category: { name: ''}
-      }
+    return {
+      category: { name: '' },
+    };
   },
   methods: {
-      handleSubmit() {
-          console.log(this.category.name)
+    async handleSubmit() {
+      console.log(this.category.name);
+
+      try {
+        const res = await addCategory(this.category.name);
+        console.log(res.data);
+      } catch (error) {
+        console.error(error);
       }
-  }
+    },
+  },
 };
 </script>

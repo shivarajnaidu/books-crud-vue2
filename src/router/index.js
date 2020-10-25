@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/books/categories/new',
+    name: 'Add New Category',
+    component: () => import('../pages/categories/AddCategory.vue'),
+  },
+  {
     path: '/books/new',
     name: 'Add New book',
     component: () => import('../pages/books/CreateBook.vue'),
